@@ -10,6 +10,7 @@ text-QA text question answer：在文档中问问题，得到答案
 Machine Reading Comprehension (MRC)
 
 trec ：Text REtrieval Conference (TREC) Data
+
 都研究了什么呢
 ---
 
@@ -23,6 +24,7 @@ neural text-QA agents的核心在于，neural Machine Reading
 Comprehension (MRC) 模型，在给出的文章范围内，该模型根据给出的问题，从中得出答案。作者研究了流行的mrc数据集和trec text-QA的开放benchmark的结果，总结出最厉害的mrc模型技术包括两个方面，1.将问题和文章编码为neural向量 2.从neural 空间中得到答案（啊咧，这不是废话吗，我这个门外girl都可以想象，不然还能是啥？）
 
 作者还研究了多回合会话式text-QA，以及mrc任务和模型怎样扩展到会话QA。
+
  KB
  ---
 KB是什么呢?将世界上的知识组织起来，存在数据库中，比如， DBPedia (Auer et al., 2007), Freebase (Bollacker et al., 2008) and Yago (Suchanek et al.,2007)。
