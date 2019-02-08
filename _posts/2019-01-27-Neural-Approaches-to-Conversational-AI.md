@@ -32,6 +32,6 @@ KB是由subject-predicate-object triples (s; r; t)三元组组成的。
 最后得出多个目标路径，目标路径的目标节点既是答案。
 这里举了个例子，谁先给Family Guy中的Meg配音的？看图可以很容易看出这个过程，首先得到问题对应的
 λ表达式，然后根据表达式得到query graph。
-![symbolic 方法示例](../img/in-post/3.1-symbolic-app.PNG)
+![symbolic 方法示例](/img/in-post/3.1-symbolic-app.PNG)
 symbolic方法有两个缺点。1 对于自然语言的解释，有可能匹配错误。2 KB规模比较大的时候，
 搜索复杂度太高。
