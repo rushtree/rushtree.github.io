@@ -1,13 +1,14 @@
 ## Question Answering and Machine Reading Comprehension
+寫在前面，本篇文章是同名论文的读后笔记。
 ### 缩写
 
-KB-QA knowledge base question answer：在kb中问问题，得到答案
+KB-QA: knowledge base question answer,在KB中问问题，得到答案
 
-text-QA text question answer：在文档中问问题，得到答案
+text-QA: text question answer,在文档中问问题，得到答案
 
-Machine Reading Comprehension (MRC)
+MRC: Machine Reading Comprehension 
 
-trec ：Text REtrieval Conference (TREC) Data
+TREC:Text REtrieval Conference 
 ### 都研究了什么呢
 
 近来，KB-QA 和 text-QA的需求都很强。KB-QA比sql查询系统好用的多，用户不需要会sql语句，直接问问题就行。text-QA在移动端用起来，也比搜索引擎要好用，搜索引擎会列出好多页的查询结果，移动端翻阅起来总归不是很方便，text-QA却可以直接得出答案。
@@ -20,8 +21,17 @@ neural text-QA agents的核心在于，neural Machine Reading
 Comprehension (MRC) 模型，在给出的文章范围内，该模型根据给出的问题，从中得出答案。作者研究了流行的mrc数据集和trec text-QA的开放benchmark的结果，总结出最厉害的mrc模型技术包括两个方面，1.将问题和文章编码为neural向量 2.从neural 空间中得到答案（啊咧，这不是废话吗，我这个门外girl都可以想象，不然还能是啥？）
 
 作者还研究了多回合会话式text-QA，以及mrc任务和模型怎样扩展到会话QA。
-### KB
+### 3.1 KB
  
 KB是什么呢?将世界上的知识组织起来，存在数据库中，比如， DBPedia (Auer et al., 2007), Freebase (Bollacker et al., 2008) and Yago (Suchanek et al.,2007)。
 KB是由subject-predicate-object triples (s; r; t)三元组组成的。
 其中，s t是实体，r是关系，这种形式的KB因此也叫做知识图谱，节点和边连起来，就是图嘛。
+### 3.2 KB-QA中的语义解析
+理解本论文，原则上只做一级搜索理解。
+最厉害的symbolic 方法，套路是，先语义解析，得出问题对应的逻辑表达式，下一步得出query graph，
+最后得出多个目标路径，目标路径的目标节点既是答案。
+这里举了个例子，谁先给Family Guy中的Meg配音的？看图可以很容易看出这个过程，首先得到问题对应的
+λ表达式，然后根据表达式得到query graph。
+![symbolic 方法示例](../img/in-post/3.1-symbolic-app.PNG)
+symbolic方法有两个缺点。1 对于自然语言的解释，有可能匹配错误。2 KB规模比较大的时候，
+搜索复杂度太高。
